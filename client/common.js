@@ -1,4 +1,5 @@
-const API_BASE = new URLSearchParams(window.location.search).get("apiBase") || "http://localhost:8080/api";
+const DEFAULT_API_BASE = window.location.protocol === "file:" ? "http://localhost:8080/api" : `${window.location.origin}/api`;
+const API_BASE = new URLSearchParams(window.location.search).get("apiBase") || DEFAULT_API_BASE;
 const statusEl = document.getElementById("status");
 const reservationSubmitEl = document.getElementById("reservation-submit");
 const selectedThemeLabelEl = document.getElementById("selected-theme-label");
